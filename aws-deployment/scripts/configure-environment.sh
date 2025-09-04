@@ -219,7 +219,7 @@ DB_PASSWORD=$DB_PASSWORD
 DB_INSTANCE_TYPE=$DB_INSTANCE_TYPE
 
 # Project Configuration
-PROJECT_NAME=laguna-3dcart-netsuite
+PROJECT_NAME=laguna-integrations
 EOF
     
     print_status "Environment configuration saved to $ENV_FILE"

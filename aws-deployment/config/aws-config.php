@@ -32,7 +32,7 @@ function getSSMParameter($parameterName, $decrypt = false) {
 
 // AWS-specific environment detection
 $isAWS = !empty($_ENV['AWS_REGION']) || !empty($_SERVER['AWS_REGION']);
-$projectName = 'laguna-3dcart-netsuite';
+$projectName = 'laguna-integrations';
 $environment = $_ENV['ENVIRONMENT'] ?? 'production';
 
 if ($isAWS) {
@@ -61,7 +61,7 @@ if ($isAWS) {
 return [
     // Application Settings
     'app' => [
-        'name' => '3DCart NetSuite Integration',
+        'name' => 'Laguna Integrations',
         'version' => '1.0.0',
         'timezone' => 'America/New_York',
         'debug' => $_ENV['APP_DEBUG'] ?? false,
@@ -118,9 +118,9 @@ return [
     'notifications' => [
         'enabled' => true,
         'from_email' => $_ENV['NOTIFICATION_FROM_EMAIL'] ?? 'noreply@lagunatools.com',
-        'from_name' => $_ENV['NOTIFICATION_FROM_NAME'] ?? '3DCart Integration',
+        'from_name' => $_ENV['NOTIFICATION_FROM_NAME'] ?? 'Laguna Integrations',
         'to_emails' => explode(',', $_ENV['NOTIFICATION_TO_EMAILS'] ?? 'seun_sodimu@lagunatools.com'),
-        'subject_prefix' => '[3DCart Integration] ',
+        'subject_prefix' => '[Laguna Integrations] ',
         'ses' => [
             'enabled' => $isAWS,
             'region' => $_ENV['AWS_REGION'] ?? 'us-east-1',
@@ -169,10 +169,25 @@ return [
         'request_timeout' => 60,
     ],
 
+    // HubSpot Settings
+    'hubspot' => [
+        'default_owner_id' => null, // Set to specific HubSpot user ID if needed
+        'default_pipeline_id' => null, // Set to specific pipeline ID if needed
+        'default_deal_stage' => 'appointmentscheduled', // Default deal stage
+        'create_missing_contacts' => true,
+        'update_existing_contacts' => true,
+        'sync_custom_properties' => true,
+        'connection_timeout' => 30,
+        'request_timeout' => 60,
+        'webhook_validation' => true,
+        'batch_size' => 100, // HubSpot allows up to 100 records per batch
+    ],
+
     // API Rate Limiting (AWS optimized)
     'rate_limiting' => [
         'netsuite_requests_per_minute' => 10,
         'threedcart_requests_per_minute' => 60,
+        'hubspot_requests_per_minute' => 100, // HubSpot allows 100 requests per 10 seconds
         'cache_ttl' => 300, // 5 minutes
     ],
 

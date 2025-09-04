@@ -1,6 +1,6 @@
-# AWS Deployment Guide - 3DCart NetSuite Integration
+# AWS Deployment Guide - Laguna Integrations
 
-This guide provides comprehensive instructions for deploying the 3DCart NetSuite Integration system to AWS infrastructure.
+This guide provides comprehensive instructions for deploying the Laguna Integrations system (3DCart, NetSuite, and HubSpot) to AWS infrastructure.
 
 ## Table of Contents
 
@@ -131,7 +131,7 @@ aws acm request-certificate \
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd laguna_3dcart_netsuite
+cd laguna-integrations
 
 # Make scripts executable
 chmod +x aws-deployment/scripts/*.sh
@@ -175,26 +175,37 @@ The deployment script will:
 ```bash
 # Check stack status
 aws cloudformation describe-stacks \
-    --stack-name laguna-3dcart-netsuite-production-app \
+    --stack-name laguna-integrations-production-app \
     --query 'Stacks[0].StackStatus'
 
 # Get Load Balancer DNS name
 aws cloudformation describe-stacks \
-    --stack-name laguna-3dcart-netsuite-production-app \
+    --stack-name laguna-integrations-production-app \
     --query 'Stacks[0].Outputs[?OutputKey==`LoadBalancerDNS`].OutputValue' \
     --output text
 ```
 
-### Step 4: Update DNS Records
+### Step 4: Update DNS Records (CloudFlare)
 
-Update your domain's DNS to point to the Load Balancer:
+Update your domain's DNS in CloudFlare to point to the Load Balancer:
 
-```
-Type: CNAME
-Name: integration.lagunatools.com
-Value: <LoadBalancer-DNS-Name>
-TTL: 300
-```
+1. Log into CloudFlare Dashboard
+2. Select the `lagunatools.com` domain
+3. Go to DNS settings
+4. Create/Update the CNAME record:
+   ```
+   Type: CNAME
+   Name: integration
+   Target: <LoadBalancer-DNS-Name>
+   TTL: Auto
+   Proxy status: Proxied (orange cloud) - for CloudFlare protection
+   ```
+
+**Note**: With CloudFlare proxy enabled, you get additional benefits:
+- DDoS protection
+- Web Application Firewall (WAF)
+- Caching and performance optimization
+- SSL/TLS encryption (CloudFlare's Universal SSL)
 
 ## Post-Deployment Configuration
 
@@ -219,6 +230,7 @@ sudo nano config/credentials.php
 # - 3DCart API credentials
 # - NetSuite OAuth credentials
 # - SendGrid/Brevo API keys
+# - HubSpot API credentials
 ```
 
 ### 3. Test Application
@@ -233,13 +245,21 @@ curl -X POST https://integration.lagunatools.com/webhook.php \
     -d '{"test": "data"}'
 ```
 
-### 4. Configure 3DCart Webhook
+### 4. Configure Webhooks
 
+#### 3DCart Webhook
 In your 3DCart admin panel:
 1. Go to Settings → General → Webhooks
 2. Add webhook URL: `https://integration.lagunatools.com/webhook.php`
 3. Select events: Order Created, Order Updated
 4. Set secret key (same as in your configuration)
+
+#### HubSpot Webhook (Optional)
+If you need HubSpot to send data to your integration:
+1. Go to HubSpot Settings → Integrations → Webhooks
+2. Add webhook URL: `https://integration.lagunatools.com/hubspot-webhook.php`
+3. Select events: Contact Created, Contact Updated, Deal Created, Deal Updated
+4. Set authentication method if required
 
 ## Monitoring and Maintenance
 
@@ -248,9 +268,9 @@ In your 3DCart admin panel:
 ```bash
 # Deploy CloudWatch monitoring
 aws cloudformation create-stack \
-    --stack-name laguna-3dcart-netsuite-production-monitoring \
+    --stack-name laguna-integrations-production-monitoring \
     --template-body file://cloudformation/monitoring.yaml \
-    --parameters ParameterKey=ProjectName,ParameterValue=laguna-3dcart-netsuite \
+    --parameters ParameterKey=ProjectName,ParameterValue=laguna-integrations \
                  ParameterKey=Environment,ParameterValue=production \
                  ParameterKey=NotificationEmail,ParameterValue=admin@lagunatools.com
 ```
@@ -292,7 +312,7 @@ sudo logrotate -f /etc/logrotate.conf
 #### 1. Application Not Loading
 ```bash
 # Check EC2 instance status
-aws ec2 describe-instances --filters "Name=tag:Name,Values=laguna-3dcart-netsuite-production-web-server"
+aws ec2 describe-instances --filters "Name=tag:Name,Values=laguna-integrations-production-web-server"
 
 # Check application logs
 sudo tail -f /var/www/html/logs/app.log
@@ -307,7 +327,7 @@ sudo tail -f /var/log/httpd/error_log
 mysql -h <rds-endpoint> -u admin -p -e "SELECT 1;"
 
 # Check RDS status
-aws rds describe-db-instances --db-instance-identifier laguna-3dcart-netsuite-production-db
+aws rds describe-db-instances --db-instance-identifier laguna-integrations-production-db
 ```
 
 #### 3. SSL Certificate Issues
@@ -328,7 +348,7 @@ df -h
 
 # Scale up if needed
 aws autoscaling update-auto-scaling-group \
-    --auto-scaling-group-name laguna-3dcart-netsuite-production-asg \
+    --auto-scaling-group-name laguna-integrations-production-asg \
     --desired-capacity 2
 ```
 
@@ -398,6 +418,29 @@ aws autoscaling update-auto-scaling-group \
 - Infrastructure recreation from CloudFormation
 - DNS failover (if multi-region)
 
+## Supported Integrations
+
+This deployment supports the following integrations:
+
+### 3DCart Integration
+- **Purpose**: E-commerce order processing
+- **Webhook**: `https://integration.lagunatools.com/webhook.php`
+- **Events**: Order Created, Order Updated
+- **Rate Limit**: 60 requests/minute
+
+### NetSuite Integration
+- **Purpose**: ERP system synchronization
+- **API**: REST API v1 with OAuth 1.0
+- **Features**: Customer creation, Sales Order creation, Item management
+- **Rate Limit**: 10 requests/minute
+
+### HubSpot Integration
+- **Purpose**: CRM contact and deal management
+- **API**: REST API v3 with Bearer token authentication
+- **Features**: Contact retrieval, Deal creation, Custom properties sync
+- **Rate Limit**: 100 requests per 10 seconds
+- **Webhook**: `https://integration.lagunatools.com/hubspot-webhook.php` (optional)
+
 ## Support and Maintenance
 
 ### Regular Tasks
@@ -407,6 +450,7 @@ aws autoscaling update-auto-scaling-group \
 - [ ] Test backup/restore procedures quarterly
 - [ ] Review and update security settings quarterly
 - [ ] Performance optimization review semi-annually
+- [ ] Test all API integrations monthly
 
 ### Emergency Contacts
 - AWS Support (if applicable)

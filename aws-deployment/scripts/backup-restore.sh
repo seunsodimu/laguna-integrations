@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Backup and Restore Script for 3DCart NetSuite Integration
+# Backup and Restore Script for Laguna Integrations
 # This script handles database backups, application backups, and restoration
 
 set -e
 
 # Configuration
-PROJECT_NAME="laguna-3dcart-netsuite"
+PROJECT_NAME="laguna-integrations"
 ENVIRONMENT="production"
 AWS_REGION="us-east-1"
 BACKUP_RETENTION_DAYS=30

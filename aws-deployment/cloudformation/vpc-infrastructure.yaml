@@ -1,10 +1,10 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'VPC Infrastructure for 3DCart NetSuite Integration'
+Description: 'VPC Infrastructure for Laguna Integrations'
 
 Parameters:
   ProjectName:
     Type: String
-    Default: 'laguna-3dcart-netsuite'
+    Default: 'laguna-integrations'
     Description: 'Project name for resource naming'
   
   Environment:
