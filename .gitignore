@@ -216,7 +216,7 @@ sample_data/
 # =============================================================================
 
 # Deployment scripts (if they contain sensitive info)
-deploy.sh
+# deploy.sh
 deploy.php
 deployment/
 
