@@ -1,0 +1,54 @@
+{
+    "timestamp": "2025-08-14 19:00:42",
+    "total_tests": 17,
+    "passed_tests": 16,
+    "failed_tests": 1,
+    "success_rate": 94.11764705882352,
+    "test_details": {
+        "Order Model: getTotal() uses OrderAmount": true,
+        "Order Model: getDiscountAmount() uses OrderDiscount": true,
+        "Order Model: calculateItemsSubtotal() includes options": true,
+        "Order Model: validateTotals() passes": true,
+        "NetSuite Service: Discount extraction correct": true,
+        "NetSuite Service: Total extraction correct": true,
+        "NetSuite Service: Service initializes": true,
+        "NetSuite Service: Configuration loaded": true,
+        "Order Controller: Field mapping": false,
+        "Line Items: Product items created": true,
+        "Line Items: Discount item created": true,
+        "Line Items: Total calculation correct": true,
+        "Line Items: Discount amount correct": true,
+        "Configuration: Discount item ID configured": true,
+        "Configuration: Include discount enabled": true,
+        "Configuration: Total validation enabled": true,
+        "Configuration: Tolerance configured": true
+    },
+    "categories": {
+        "Order Model": {
+            "passed": 4,
+            "total": 4
+        },
+        "NetSuite Service": {
+            "passed": 4,
+            "total": 4
+        },
+        "Order Controller": {
+            "passed": 0,
+            "total": 1
+        },
+        "Line Items": {
+            "passed": 4,
+            "total": 4
+        },
+        "Configuration": {
+            "passed": 4,
+            "total": 4
+        }
+    },
+    "order_data": {
+        "order_id": 1057113,
+        "order_amount": 6778.65,
+        "order_discount": 1803.34,
+        "promotion": ">$6000 (22%)"
+    }
+}

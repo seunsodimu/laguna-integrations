@@ -1,0 +1,319 @@
+# 3DCart to NetSuite Integration - Git Ignore File
+
+# =============================================================================
+# SENSITIVE FILES - NEVER COMMIT THESE!
+# =============================================================================
+
+# API Credentials and Configuration
+config/credentials.php
+.env
+.env.local
+.env.production
+.env.staging
+
+# Database credentials
+config/database.php
+
+# Any file containing API keys or secrets
+*credentials*
+*secrets*
+*keys*
+
+# =============================================================================
+# LOGS AND TEMPORARY FILES
+# =============================================================================
+
+# Application logs
+logs/
+*.log
+*.log.*
+
+# Temporary upload files
+uploads/
+temp/
+tmp/
+
+# Cache files
+cache/
+*.cache
+
+# Session files
+sessions/
+*.sess
+
+# =============================================================================
+# COMPOSER AND DEPENDENCIES
+# =============================================================================
+
+# Composer
+vendor/
+composer.phar
+composer.lock
+
+# NPM (if using any frontend tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# =============================================================================
+# IDE AND EDITOR FILES
+# =============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PhpStorm / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# BACKUP AND ARCHIVE FILES
+# =============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*.tmp
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+# =============================================================================
+# PHP SPECIFIC
+# =============================================================================
+
+# PHP CS Fixer
+.php_cs.cache
+.php-cs-fixer.cache
+
+# PHPUnit
+.phpunit.result.cache
+phpunit.xml
+coverage/
+build/
+
+# Psalm
+psalm.xml
+.psalm/
+
+# PHPStan
+phpstan.neon
+.phpstan/
+
+# =============================================================================
+# WEB SERVER FILES
+# =============================================================================
+
+# Apache
+.htaccess.local
+.htpasswd
+
+# Nginx
+nginx.conf.local
+
+# =============================================================================
+# DEVELOPMENT AND TESTING
+# =============================================================================
+
+# Test files and coverage
+tests/coverage/
+tests/reports/
+coverage.xml
+clover.xml
+
+# Development databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Mock data
+mock_data/
+test_data/
+sample_data/
+
+# =============================================================================
+# DEPLOYMENT FILES
+# =============================================================================
+
+# Deployment scripts (if they contain sensitive info)
+deploy.sh
+deploy.php
+deployment/
+
+# Docker (if used)
+docker-compose.override.yml
+.dockerignore
+
+# =============================================================================
+# CUSTOM PROJECT FILES
+# =============================================================================
+
+# Custom configuration files
+config/local.php
+config/development.php
+config/production.php
+
+# User-specific files
+user_uploads/
+user_data/
+
+# Error dumps
+error_dumps/
+crash_reports/
+
+# Performance logs
+performance/
+profiling/
+
+# =============================================================================
+# SECURITY FILES
+# =============================================================================
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# SSH keys
+id_rsa
+id_rsa.pub
+id_dsa
+id_dsa.pub
+id_ecdsa
+id_ecdsa.pub
+id_ed25519
+id_ed25519.pub
+
+# =============================================================================
+# DOCUMENTATION BUILDS
+# =============================================================================
+
+# Generated documentation
+docs/build/
+docs/_build/
+site/
+
+# =============================================================================
+# MISCELLANEOUS
+# =============================================================================
+
+# Lock files
+*.lock
+
+# PID files
+*.pid
+
+# Socket files
+*.sock
+
+# Temporary directories
+temp*/
+tmp*/
+
+# User-specific ignore patterns (add your own below)
+# =============================================================================
+
+# Add any project-specific files you want to ignore here
+# Example:
+# my_local_config.php
+# custom_scripts/
+
+# =============================================================================
+# IMPORTANT NOTES:
+# =============================================================================
+#
+# 1. NEVER commit config/credentials.php - it contains sensitive API keys
+# 2. Always review files before committing to ensure no secrets are included
+# 3. Use 'git status' to check what files will be committed
+# 4. If you accidentally commit sensitive data, immediately:
+#    - Remove it from the repository
+#    - Rotate all exposed credentials
+#    - Consider the data compromised
+#
+# 5. For team development, create a config/credentials.example.php with
+#    placeholder values that can be safely committed
+#
+# =============================================================================

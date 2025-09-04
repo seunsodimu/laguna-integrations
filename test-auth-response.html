@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Auth Response</title>
+</head>
+<body>
+    <h1>Test Authentication Response</h1>
+    <button onclick="testFetch()">Test Fetch Orders</button>
+    <div id="result"></div>
+
+    <script>
+        function testFetch() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            const formData = new FormData();
+            formData.append('action', 'fetch_orders');
+            formData.append('start_date', '2025-08-13');
+            formData.append('end_date', '2025-08-14');
+            formData.append('status', '');
+            
+            fetch('order-sync.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(text => {
+                console.log('Raw response text:', text);
+                console.log('Response length:', text.length);
+                
+                let data;
+                try {
+                    data = JSON.parse(text);
+                    console.log('Parsed JSON:', data);
+                } catch (e) {
+                    console.error('JSON parse error:', e);
+                    console.error('Invalid JSON response:', text);
+                    resultDiv.innerHTML = `
+                        <h3>JSON Parse Error</h3>
+                        <p><strong>Error:</strong> ${e.message}</p>
+                        <p><strong>Raw Response:</strong></p>
+                        <pre>${text}</pre>
+                    `;
+                    return;
+                }
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <h3>Success!</h3>
+                        <p>Found ${data.orders.length} orders</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <h3>Server Response (Not Success)</h3>
+                        <p><strong>Error:</strong> ${data.error}</p>
+                        ${data.redirect ? `<p><strong>Redirect:</strong> ${data.redirect}</p>` : ''}
+                        <p>This is actually working correctly - you need to log in first!</p>
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                resultDiv.innerHTML = `
+                    <h3>Network Error</h3>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p>Check the browser console for more details.</p>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>

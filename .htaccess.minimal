@@ -1,0 +1,3 @@
+# Minimal .htaccess for GoDaddy - Last resort if others fail
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]

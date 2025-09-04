@@ -1,0 +1,353 @@
+{
+    "links": [
+        {
+            "rel": "self",
+            "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesOrder/151202"
+        }
+    ],
+    "billingAddress": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/billingAddress"
+            }
+        ]
+    },
+    "canBeUnapproved": true,
+    "canHaveStackable": true,
+    "createdDate": "2025-08-21T19:14:00Z",
+    "currency": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/currency/1"
+            }
+        ],
+        "id": "1",
+        "refName": "US Dollar"
+    },
+    "custbody21": false,
+    "custbody_15699_exclude_from_ep_process": false,
+    "custbody_atlas_exist_cust_hdn": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customlist_atlas_cust_type/2"
+            }
+        ],
+        "id": "2",
+        "refName": "Existing Customer"
+    },
+    "custbody_atlas_new_cust_hdn": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customlist_atlas_cust_type/1"
+            }
+        ],
+        "id": "1",
+        "refName": "New Customer"
+    },
+    "custbody_atlas_no_hdn": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customlist_atlas_appr_by_creator/2"
+            }
+        ],
+        "id": "2",
+        "refName": "No"
+    },
+    "custbody_atlas_yes_hdn": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customlist_atlas_appr_by_creator/1"
+            }
+        ],
+        "id": "1",
+        "refName": "Yes"
+    },
+    "custbody_ava_customerentityid": "Bryan Van Dyke",
+    "custbody_ava_customerfirstname": "Bryan",
+    "custbody_ava_customerisperson": true,
+    "custbody_ava_customerlastname": "Van Dyke",
+    "custbody_ava_customertaxable": true,
+    "custbody_ava_disable_tax_calculation": false,
+    "custbody_ava_entity_type": "Customer",
+    "custbody_ava_is_sellerimporter": false,
+    "custbody_ava_partnerisperson": false,
+    "custbody_ava_pickup": false,
+    "custbody_ava_scis_trans_flag": false,
+    "custbody_ava_shippingtaxinclude": false,
+    "custbody_ava_subsidiaryaddress1": "744 Refuge Way Suite 200",
+    "custbody_ava_subsidiaryaddressee": "Laguna Tools, Inc",
+    "custbody_ava_subsidiarycity": "Grand Prairie",
+    "custbody_ava_subsidiarycountry": "United States",
+    "custbody_ava_subsidiarycurrency": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/currency/1"
+            }
+        ],
+        "id": "1",
+        "refName": "US Dollar"
+    },
+    "custbody_ava_subsidiarycurrencycode": "USD",
+    "custbody_ava_subsidiaryobj": "[{\"recordType\":\"customrecord_avasubsidiaries\",\"id\":\"1\",\"values\":{\"custrecord_ava_subsidiary\":[{\"value\":\"1\",\"text\":\"Laguna Tools, Inc\"}],\"custrecord_ava_subdeftaxcode\":\"AVATAX+53\",\"custrecord_ava_iscompanyaddr\":true,\"custrecord_ava_defcompanycode\":\"DEFAULT\"}}]",
+    "custbody_ava_subsidiaryshipaddress1": "744 Refugee Way Suite 200",
+    "custbody_ava_subsidiaryshipcity": "Grand Prairie",
+    "custbody_ava_subsidiaryshipcountry": "United States",
+    "custbody_ava_subsidiaryshipstate": "TX",
+    "custbody_ava_subsidiaryshipzip": "75050",
+    "custbody_ava_subsidiarystate": "TX",
+    "custbody_ava_subsidiaryzip": "75050",
+    "custbody_ava_suspendtaxcall": false,
+    "custbody_ava_taxcredit": 0.0,
+    "custbody_ava_taxdateoverride": false,
+    "custbody_ava_taxinclude": false,
+    "custbody_ava_taxoverride": false,
+    "custbody_ava_usebilltoaddress": false,
+    "custbody_avashippingcode": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customrecord_avashippingcodes/3"
+            }
+        ],
+        "id": "3",
+        "refName": "FR010000"
+    },
+    "custbody_avashippingcodetext": "FR010000",
+    "custbody_br_handlingmode_rec_ext_event": false,
+    "custbody_bt_es_decline_fpa": false,
+    "custbody_completion": false,
+    "custbody_country_of_transship": "Country of Transshipment \r\nUnited States/Irvine CA",
+    "custbody_customer_category": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customercategory/18"
+            }
+        ],
+        "id": "18",
+        "refName": "Wholesale"
+    },
+    "custbody_es_bt_auth_by_external_pnref": false,
+    "custbody_es_bt_reauthorization": false,
+    "custbody_has_flat_rate_item_tt": false,
+    "custbody_is_91_days": false,
+    "custbody_link_so": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/custbody_link_so"
+            }
+        ]
+    },
+    "custbody_lt_delivery_appt": false,
+    "custbody_lt_inside_delivery": false,
+    "custbody_lt_liftgate_svc": false,
+    "custbody_lt_none": false,
+    "custbody_lt_residential_addrs": false,
+    "custbody_nondeductible_ref_tran": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/custbody_nondeductible_ref_tran"
+            }
+        ]
+    },
+    "custbody_nst_swms_v3_package_boxes": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/custbody_nst_swms_v3_package_boxes"
+            }
+        ]
+    },
+    "custbody_nst_wms_updated_line_unique": false,
+    "custbody_packship_process_on_if": false,
+    "custbody_report_timestamp": "21/08/2025 12:14:29",
+    "custbody_requested_parts_id": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/custbody_requested_parts_id"
+            }
+        ]
+    },
+    "custbody_requestor": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/custbody_requestor"
+            }
+        ]
+    },
+    "custbody_sales_order_region": "Northeast",
+    "custbody_shipcentral_sat_del": false,
+    "custbody_sii_article_61d": false,
+    "custbody_sii_article_72_73": false,
+    "custbody_sii_is_third_party": false,
+    "custbody_sii_not_reported_in_time": false,
+    "custbody_slscomcalc": 0.52498865,
+    "custbody_so_type": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customlist_sales_order_type/1"
+            }
+        ],
+        "id": "1",
+        "refName": "NORMAL"
+    },
+    "custbody_sps_package_validation_bypass": false,
+    "custbody_sps_test_transaction_flag": false,
+    "custbody_sps_trans_carton_ct": 0,
+    "custbody_sps_xref_queued": false,
+    "custbodyaccounting_approval": false,
+    "custbodydeposit_received": false,
+    "custbodypaid_in_full": false,
+    "custbodyship_immediate": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/customlistship_immediate_yes_no/2"
+            }
+        ],
+        "id": "2",
+        "refName": "SPLIT SHIP "
+    },
+    "custbodytelephone": "2812419504",
+    "customForm": {
+        "id": "233",
+        "refName": "Laguna Tools - Sales Order - Invoice"
+    },
+    "department": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/department/3"
+            }
+        ],
+        "id": "3",
+        "refName": "Sales: Wholesale"
+    },
+    "discountTotal": 0.0,
+    "email": "insidesales@elitemetaltools.com",
+    "entity": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/contact/213808"
+            }
+        ],
+        "id": "213808",
+        "refName": "1141064: EliteMetal Tools : Bryan Van Dyke"
+    },
+    "estGrossProfit": 3099.47,
+    "estGrossProfitPercent": 52.4989,
+    "exchangeRate": 1.0,
+    "externalId": "3DCART_1142161",
+    "giftCertApplied": 0.0,
+    "giftCertRedemption": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/giftCertRedemption"
+            }
+        ]
+    },
+    "handlingCost": 0.0,
+    "id": "151202",
+    "item": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/item"
+            }
+        ]
+    },
+    "lastModifiedDate": "2025-08-21T19:14:00Z",
+    "location": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/location/1"
+            }
+        ],
+        "id": "1",
+        "refName": "Laguna Texas"
+    },
+    "memo": "Order imported from 3DCart - Order #1142161",
+    "needsPick": true,
+    "nextBill": "2025-08-21",
+    "orderStatus": {
+        "id": "A",
+        "refName": "A"
+    },
+    "originator": "restWebServices",
+    "otherRefNum": "47403",
+    "partners": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/partners"
+            }
+        ]
+    },
+    "prevDate": "2025-08-21",
+    "salesEffectiveDate": "2025-08-21",
+    "salesTeam": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/salesTeam"
+            }
+        ]
+    },
+    "shipAddress": "149 Route 28, West Yarmouth, MA, 02673\n149 Route 28\nWest Yarmouth MA 02673\nUnited States\n320-382-6336",
+    "shipComplete": false,
+    "shipDate": "2025-08-22",
+    "shipIsResidential": false,
+    "shipOverride": false,
+    "shippingAddress": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/salesorder/151202/shippingAddress"
+            }
+        ]
+    },
+    "shippingAddress_text": "149 Route 28, West Yarmouth, MA, 02673\n149 Route 28\nWest Yarmouth MA 02673\nUnited States\n320-382-6336",
+    "shippingCostOverridden": false,
+    "source": {
+        "id": "REST Web Services",
+        "refName": "REST Web Services"
+    },
+    "status": {
+        "id": "A",
+        "refName": "Pending Approval"
+    },
+    "subsidiary": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://11134099-sb2.suitetalk.api.netsuite.com/services/rest/record/v1/subsidiary/1"
+            }
+        ],
+        "id": "1",
+        "refName": "Laguna Tools, Inc"
+    },
+    "subtotal": 5903.88,
+    "toBeEmailed": false,
+    "toBeFaxed": false,
+    "toBePrinted": false,
+    "total": 5903.88,
+    "totalCostEstimate": 2804.41,
+    "tranDate": "2025-08-21",
+    "tranId": "SO369311",
+    "webStore": "F"
+}

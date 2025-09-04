@@ -1,0 +1,14 @@
+# Simple .htaccess for testing - rename to .htaccess if the main one doesn't work
+
+RewriteEngine On
+
+# Allow direct access to existing files
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .* - [L]
+
+# Allow direct access to existing directories
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .* - [L]
+
+# Redirect everything else to public directory
+RewriteRule ^(.*)$ public/$1 [L]

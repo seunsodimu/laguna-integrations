@@ -1,0 +1,29 @@
+# GoDaddy Compatible .htaccess for Public Directory
+# Simplified version to avoid 403 errors
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Route all requests to index.php (front controller pattern)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# Basic security - deny access to sensitive files
+<FilesMatch "\.(log|conf|sql|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Basic PHP settings (if supported)
+<IfModule mod_php5.c>
+    php_flag expose_php Off
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+</IfModule>
+
+<IfModule mod_php7.c>
+    php_flag expose_php Off
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+</IfModule>
